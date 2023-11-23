@@ -1,15 +1,29 @@
 /// <reference types="cypress"/>
 
-describe("Validate login functionality", () => {
+import { login , logout } from "../../../util/handleSession"
 
-    it('Validate login with Valid Credentials', () => {
+context('Admin User Management', () => {
+
+    const username = 'Admin'
+    const password = 'admin123'
+
+    it('Create user account', () => {
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-        cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input').type('Admin').should('have.value','Admin')
-        cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input').type('admin123').should('have.value','admin123')
-        cy.get('.oxd-button').click()
-        cy.get('.oxd-topbar-header-breadcrumb > .oxd-text').should('have.text','Dashboard')
-        cy.get('.emp-attendance-chart > canvas').should('be.visible')
-        cy.get('.oxd-userdropdown-tab').click()
-        cy.get(':nth-child(4) > .oxd-userdropdown-link').click()
+        login(username,password)
+
+        //click menu admin
+        cy.get(':nth-child(1) > .oxd-main-menu-item').click()
+        cy.get('.oxd-topbar-header-breadcrumb-module').should('be.visible')
+        cy.get('.oxd-topbar-header-breadcrumb-module').should('have.text','Admin')
+
+        //click button add
+        cy.get('.orangehrm-header-container > .oxd-button').click()
+
+        //set text username
+        cy.get(':nth-child(4) > .oxd-input-group > :nth-child(2) > .oxd-input').type('titan123')
+
+        //then logout
+        // logout()
     })
+
 })
