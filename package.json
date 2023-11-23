@@ -1,0 +1,23 @@
+{
+  "name": "cucumberjsorangehrm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msobirin28/cucumberJSOrangeHRM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msobirin28/cucumberJSOrangeHRM/issues"
+  },
+  "homepage": "https://github.com/msobirin28/cucumberJSOrangeHRM#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.1",
+    "cypress": "^13.6.0"
+  }
+}
